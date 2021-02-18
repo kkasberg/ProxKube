@@ -133,9 +133,9 @@ def parse_config(vmId,fileName,fileType, storageType):
 
 def build_vm_command(vmId, vmName, typeOfHD, fileType, storageType):
     if(storageType == 1):
-        createCommand = "qm create " + str(vmId) + " --name=" + vmName + " --onboot=0 --"+ typeOfHD +"2=none,media=cdrom --ostype=l26 --scsihw=virtio-scsi-pci --" + typeOfHD + "0=" + storageName + ":1,format=raw,cache=writethrough --sockets=1 --cores=1 --numa=0 --memory=512 --net0=virtio,bridge=vmbr1,tag=700"
+        createCommand = "qm create " + str(vmId) + " --name=" + vmName + " --onboot=0 --"+ typeOfHD +"2=none,media=cdrom --ostype=l26 --scsihw=virtio-scsi-pci --" + typeOfHD + "0=" + storageName + ":1,format=raw,cache=writethrough --sockets=1 --cores=1 --numa=0 --memory=512 --net0=virtio,bridge=vmbr0,tag=10"
     elif(storageType == 2 ):
-        createCommand = "qm create " + str(vmId) + " --name=" + vmName + " --onboot=0 --"+typeOfHD+"2=none,media=cdrom --ostype=l26 --scsihw=virtio-scsi-pci --" + typeOfHD + "0=" + storageName + ":1,format=qcow2,cache=writethrough --sockets=1 --cores=1 --numa=0 --memory=512 --net0=virtio,bridge=vmbr1,tag=700"
+        createCommand = "qm create " + str(vmId) + " --name=" + vmName + " --onboot=0 --"+typeOfHD+"2=none,media=cdrom --ostype=l26 --scsihw=virtio-scsi-pci --" + typeOfHD + "0=" + storageName + ":1,format=qcow2,cache=writethrough --sockets=1 --cores=1 --numa=0 --memory=512 --net0=virtio,bridge=vmbr0,tag=10"
    
     create_vm(createCommand, vmId, vmName)
    
